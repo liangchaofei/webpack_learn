@@ -1,2 +1,2 @@
-/01_demo/node_module/*
-/02_demo/node_module/*
+
+**/node_modules

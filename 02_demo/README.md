@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-16 21:38:15
- * @LastEditTime: 2020-03-16 22:18:52
+ * @LastEditTime: 2020-03-17 11:04:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack/02_demo/README.md
@@ -85,3 +85,39 @@
         },
     }
 ```
+
+### plugin
++ 用于bundle文件的优化，资源管理和环境变量注入，作用于整个构建过程.
+
++ 常见plugins
+|  名称   | 描述  |
+|  ----  | ----  |
+| CommonsChunkPlugin  | 将chunks相同的模块代码提取成公共js |
+| CleanWebpackPlugin  | 清理构建目录 |
+| ExtractTextWebpackPlugin  | 将css从bundle文件里提取成一个独立css文件 |
+| CopyWebpackPlugin  | 将文件或者文件夹拷贝到构建的输出目录 |
+| HtmlWebpackPlugin  | 创建html文件承载输出的bundle |
+| UglifyjsWebpackPlugin  | 压缩js |
+| ZipWebpackPlugin  | 将打包的资源生菜一个zip包 |
+
++ plugin用法
+```js
+    module.exports = {
+        plugins:[
+            new HtmlWebpackPlugin({  // 将plugin放到数组中
+                template:'./src/index.html'
+            })
+        ]
+    }
+```
+
+### mode
++ 用来指定当前构建环境是：production,development,none
++ 设置mode 可以使用webpack内置的函数,默认值为production
+
++ mode内置函数功能
+|  名称   | 描述  |
+|  ----  | ----  |
+| development  | 设置process.env.NODE_ENV的值为develpoment，默认开启NamedChunksPlugin和NamedModulesPlugin |
+| production  | 设置process.env.NODE_ENV的值为production,默认开启FlagDependencyUsagePlugin,FlagIncludeChunksPlugin,ModuleConcatenationPlugin,NoEmitOnErrorPlugin,OccurrenceOrderPlugin,SideEffectsFlagPlugin和TerserPlugin |
+| none  | 不开启任何优化选项 |

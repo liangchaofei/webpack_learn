@@ -42,6 +42,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "large-count": "^1.0.1",
     "lib-flexible": "^0.3.2"
   }
 }
